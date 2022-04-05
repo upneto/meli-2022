@@ -1,0 +1,9 @@
+
+N
+java:S1172z"3Remove this unused method parameter "bitsSequence".(©ÙÆ½ÿÿÿÿÿ
+2
+java:S1643}"Use a StringBuilder instead.(Êß÷ß
+`
+java:S2095)"EUse try-with-resources or close this "Scanner" in a "finally" clause.(üã­Ëûÿÿÿÿ
+f
+java:S3655D"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(Š—ÈÄ

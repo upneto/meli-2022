@@ -1,0 +1,13 @@
+
+?
+java:S2386"Make this member "protected".(Âä…­ûÿÿÿÿ8–‰¹¨ÿ/
+V
+java:S1118":Add a private constructor to hide the implicit public one.(æ­Ì*8˜¤®¨ÿ/
+U
+java:S1118":Add a private constructor to hide the implicit public one.(¯¡¬Èÿÿÿÿÿ
+N
+java:S3599",Use another way to initialize this instance.(Âä…­ûÿÿÿÿ8®â£¨ÿ/
+{
+java:S1171"YMove the contents of this initializer to a standard constructor or to field initializers.(Âä…­ûÿÿÿÿ8®â£¨ÿ/
+l
+java:S11927"JUse already-defined constant 'STOP' instead of duplicating its value here.(æŸ‰øÿÿÿÿ8€ä¬¨ÿ/
