@@ -22,7 +22,7 @@ public class MorseCodeTranslater {
      * @param bitsSequence
      * @return String (codigo morse)
      */
-    public String morseCodeFrom(String bitsSequence) {
+    public String decodeBitsToMorse(String bitsSequence) {
         bitsSequence = this.clean(bitsSequence);
         this.splitBitSequence(bitsSequence);
         this.setStripsOfTime(bitsSequence);
@@ -35,7 +35,7 @@ public class MorseCodeTranslater {
      * @param morseCode
      * @return String (texto)
      */
-    public String textFrom(String morseCode) {
+    public String decodeMorseToText(String morseCode) {
         StringBuilder results = new StringBuilder();
         morseCode = morseCode.trim().replaceAll(" {3}", MorseCode.Signal.WORD_SEPARATOR_TOKEN);
         Scanner sc = new Scanner(morseCode);
@@ -52,11 +52,11 @@ public class MorseCodeTranslater {
     }
 
     /**
-     * Retorna bitSequence a partir de texto
+     * Retorna texto a partir de morse
      * @param text
      * @return
      */
-    public String morseFrom(String text) {
+    public String decodeTextToMorse(String text) {
         StringBuilder morse = new StringBuilder();
         for (Character character : text.toCharArray()) {
             Stream<String> key = MorseCode.DICTIONARY.entrySet().stream()
@@ -75,7 +75,7 @@ public class MorseCodeTranslater {
      * @param text
      * @return
      */
-    public String bitSequenceFrom(String text) {
+    public String decodeTextToBits(String text) {
         StringBuilder bitSequence = new StringBuilder();
         for (Character character : text.toCharArray()) {
             bitSequence.append(String.format("%8s", Integer.toBinaryString(character)));

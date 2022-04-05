@@ -30,15 +30,15 @@ public class MorseCodeTranslaterTest extends Commons {
 
     @Test
     public void morseCodeFromTest() {
-        String response = mockTranslater.morseCodeFrom(super.bitsSequence);
+        String response = mockTranslater.decodeBitsToMorse((bitsSequence));
 
         Assert.assertNotNull(response);
-        Assert.assertEquals(super.morse, response);
+        Assert.assertEquals(morse, response);
     }
 
     @Test
     public void textFromTest() {
-        String response = mockTranslater.textFrom(super.morse);
+        String response = mockTranslater.decodeMorseToText(morse);
 
         Assert.assertNotNull(response);
         Assert.assertEquals("HEY JUDE", response);
@@ -46,15 +46,15 @@ public class MorseCodeTranslaterTest extends Commons {
 
     @Test
     public void morseFromTest() {
-        String response = mockTranslater.morseFrom(super.mockReturn);
+        String response = mockTranslater.decodeTextToMorse(text);
 
         Assert.assertNotNull(response);
-        Assert.assertEquals(super.morse, response);
+        Assert.assertEquals(morse, response);
     }
 
     @Test
     public void bitSequenceFromTest() {
-        String response = mockTranslater.bitSequenceFrom(super.mockReturn);
+        String response = mockTranslater.decodeTextToBits(text);
 
         Assert.assertNotNull(response);
         Assert.assertEquals("1001000100010110110011000001001010101010110001001000101", response);

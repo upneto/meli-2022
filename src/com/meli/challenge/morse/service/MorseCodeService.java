@@ -10,20 +10,20 @@ public class MorseCodeService {
     @Autowired
     private MorseCodeTranslater translater;
 
-    public String decodeTextToMorse(String text) {
-        return this.translater.morseCodeFrom(text);
+    public String decodeBitsToMorse(String bits) {
+        return this.translater.decodeBitsToMorse(bits);
     }
 
     public String decodeMorseToText(String morse) {
-        return this.translater.textFrom(morse);
+        return this.translater.decodeMorseToText(morse);
     }
 
-    public String decodeBitsToMorse(String text) {
-        return this.translater.morseFrom(text);
+    public String decodeTextToMorse(String text) {
+        return this.translater.decodeTextToMorse(text);
     }
 
-    public String decodeMorseToBits(String morse) {
-        return this.translater.bitSequenceFrom(morse);
+    public String decodeTextToBits(String morse) {
+        return this.translater.decodeTextToBits(morse);
     }
 
 }

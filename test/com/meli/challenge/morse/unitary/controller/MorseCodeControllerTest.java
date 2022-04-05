@@ -32,41 +32,41 @@ public class MorseCodeControllerTest extends Commons {
 
     @Test
     public void toMorseTest() throws AppException {
-        Mockito.when(mockService.decodeTextToMorse(Mockito.anyString())).thenReturn(Commons.mockReturn);
+        Mockito.when(mockService.decodeTextToMorse(Mockito.anyString())).thenReturn(morse);
         MorseCodeResponse response = controller.toMorse(new MorseCodeRequest(Mockito.anyString()));
 
         Assert.assertNotNull(response);
         Assert.assertEquals(200, response.getCode());
-        Assert.assertEquals(Commons.mockReturn, response.getResponse());
+        Assert.assertEquals(morse, response.getResponse());
     }
 
     @Test
     public void toTextTest() throws AppException {
-        Mockito.when(mockService.decodeMorseToText(Mockito.anyString())).thenReturn(Commons.mockReturn);
+        Mockito.when(mockService.decodeMorseToText(Mockito.anyString())).thenReturn(text);
         MorseCodeResponse response = controller.toText(new MorseCodeRequest(Mockito.anyString()));
 
         Assert.assertNotNull(response);
         Assert.assertEquals(200, response.getCode());
-        Assert.assertEquals(Commons.mockReturn, response.getResponse());
+        Assert.assertEquals(text, response.getResponse());
     }
 
     @Test
     public void bitsToMorseTest() throws AppException {
-        Mockito.when(mockService.decodeBitsToMorse(Mockito.anyString())).thenReturn(Commons.mockReturn);
+        Mockito.when(mockService.decodeBitsToMorse(Mockito.anyString())).thenReturn(text);
         MorseCodeResponse response = controller.bitsToMorse(new MorseCodeRequest(Mockito.anyString()));
 
         Assert.assertNotNull(response);
         Assert.assertEquals(200, response.getCode());
-        Assert.assertEquals(Commons.mockReturn, response.getResponse());
+        Assert.assertEquals(text, response.getResponse());
     }
 
     @Test
     public void morseToBitsTest() throws AppException {
-        Mockito.when(mockService.decodeMorseToBits(Mockito.anyString())).thenReturn(Commons.mockReturn);
-        MorseCodeResponse response = controller.morseToBits(new MorseCodeRequest(Mockito.anyString()));
+        Mockito.when(mockService.decodeTextToBits(Mockito.anyString())).thenReturn(bitsSequence);
+        MorseCodeResponse response = controller.text2bits(new MorseCodeRequest(Mockito.anyString()));
 
         Assert.assertNotNull(response);
         Assert.assertEquals(200, response.getCode());
-        Assert.assertEquals(Commons.mockReturn, response.getResponse());
+        Assert.assertEquals(bitsSequence, response.getResponse());
     }
 }

@@ -17,7 +17,7 @@ public class MorseCodeController {
     private MorseCodeService morseCodeService;
 
     /**
-     * Traduz texto para codigo morse
+     * Traduz texto para morse
      * @param request
      * @return
      * @throws BusinessException
@@ -56,15 +56,15 @@ public class MorseCodeController {
     }
 
     /**
-     * Traduz sequencia de bits em codigo morse
+     * Traduz texto em bits
      * @param request
      * @return
      * @throws BusinessException
      * @throws AppException
      */
-    @PostMapping("/morse2bits")
-    public MorseCodeResponse morseToBits(@RequestBody MorseCodeRequest request) throws BusinessException, AppException {
-        String text = this.morseCodeService.decodeMorseToBits(request.getText());
+    @PostMapping("/text2bits")
+    public MorseCodeResponse text2bits(@RequestBody MorseCodeRequest request) throws BusinessException, AppException {
+        String text = this.morseCodeService.decodeTextToBits(request.getText());
         return new MorseCodeResponse(200, text);
     }
 }

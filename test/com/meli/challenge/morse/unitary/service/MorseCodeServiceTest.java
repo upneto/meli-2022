@@ -32,38 +32,38 @@ public class MorseCodeServiceTest  extends Commons {
 
     @Test
     public void decodeTextToMorseTest() {
-        Mockito.when(mockTranslater.morseCodeFrom(Mockito.anyString())).thenReturn(Commons.mockReturn);
+        Mockito.when(mockTranslater.decodeTextToMorse(Mockito.anyString())).thenReturn(text);
         String response = service.decodeTextToMorse(Mockito.anyString());
 
         Assert.assertNotNull(response);
-        Assert.assertEquals(Commons.mockReturn, response);
+        Assert.assertEquals(text, response);
     }
 
     @Test
     public void  decodeMorseToTextTest() {
-        Mockito.when(mockTranslater.textFrom(Mockito.anyString())).thenReturn(Commons.mockReturn);
+        Mockito.when(mockTranslater.decodeMorseToText(Mockito.anyString())).thenReturn(text);
         String response = service.decodeMorseToText(Mockito.anyString());
 
         Assert.assertNotNull(response);
-        Assert.assertEquals(Commons.mockReturn, response);
+        Assert.assertEquals(text, response);
     }
 
     @Test
     public void  decodeBitsToMorseTest() {
-        Mockito.when(mockTranslater.morseFrom(Mockito.anyString())).thenReturn(Commons.mockReturn);
+        Mockito.when(mockTranslater.decodeBitsToMorse(Mockito.anyString())).thenReturn(text);
         String response = service.decodeBitsToMorse(Mockito.anyString());
 
         Assert.assertNotNull(response);
-        Assert.assertEquals(Commons.mockReturn, response);
+        Assert.assertEquals(text, response);
     }
 
     @Test
-    public void  decodeMorseToBitsTest(){
-        Mockito.when(mockTranslater.bitSequenceFrom(Mockito.anyString())).thenReturn(Commons.mockReturn);
-        String response = service.decodeMorseToBits(Mockito.anyString());
+    public void  decodeTextToBitsTest(){
+        Mockito.when(mockTranslater.decodeTextToBits(Mockito.anyString())).thenReturn(text);
+        String response = service.decodeTextToBits(Mockito.anyString());
 
         Assert.assertNotNull(response);
-        Assert.assertEquals(Commons.mockReturn, response);
+        Assert.assertEquals(text, response);
     }
 
 }
