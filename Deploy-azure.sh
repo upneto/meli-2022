@@ -1,0 +1,1 @@
+mvn azure-webapp:deploy
