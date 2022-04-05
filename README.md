@@ -28,19 +28,8 @@ O comando acima irá criar uma imagem Docker. Para iniciar a aplicação execute
 
 ### End Points da API
 
+A documentação básica foi disponibilizada no endereço abaixo (Swagger):
 
-[https://morse-1648997229537.azurewebsites.net/2text](https://morse-1648997229537.azurewebsites.net/2text)
-Faz a tradução de morse para texto:
+[https://morse-1648997229537.azurewebsites.net/swagger-ui/index.html](https://morse-1648997229537.azurewebsites.net/swagger-ui/index.html)
 
-	POST: { "text": ".... --- .-.. .-   -- . .-.. .." } 
-
-[https://morse-1648997229537.azurewebsites.net/2morse](https://morse-1648997229537.azurewebsites.net/2morse)
-Faz a tradução de texto para morse:
-    
-    POST: { "text": "HOLA MELI" }
-
-[https://morse-1648997229537.azurewebsites.net/bits2morse](https://morse-1648997229537.azurewebsites.net/bits2morse)
-Faz a tradução de bits para morse:
-
-    POST: { "text": "0000000011011010011100000110000001111110100111110011111100000000000111011111111011111011111000000101100011111100000111110011101100000100000" }
 

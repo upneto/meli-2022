@@ -59,14 +59,4 @@ public class MorseCodeControllerTest extends Commons {
         Assert.assertEquals(200, response.getCode());
         Assert.assertEquals(text, response.getResponse());
     }
-
-    @Test
-    public void morseToBitsTest() throws AppException {
-        Mockito.when(mockService.decodeTextToBits(Mockito.anyString())).thenReturn(bitsSequence);
-        MorseCodeResponse response = controller.text2bits(new MorseCodeRequest(Mockito.anyString()));
-
-        Assert.assertNotNull(response);
-        Assert.assertEquals(200, response.getCode());
-        Assert.assertEquals(bitsSequence, response.getResponse());
-    }
 }

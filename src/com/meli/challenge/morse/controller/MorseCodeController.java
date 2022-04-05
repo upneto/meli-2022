@@ -5,6 +5,9 @@ import com.meli.challenge.morse.controller.rest.payload.morsecode.MorseCodeRespo
 import com.meli.challenge.morse.resource.exception.AppException;
 import com.meli.challenge.morse.resource.exception.BusinessException;
 import com.meli.challenge.morse.service.MorseCodeService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +26,12 @@ public class MorseCodeController {
      * @throws BusinessException
      * @throws AppException
      */
-    @PostMapping("/2morse")
+    @ApiOperation(value = "Traduz texto para morse")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retorna codigo morse"),
+            @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
+    })
+    @PostMapping(value="/2morse", produces="application/json", consumes="application/json")
     public MorseCodeResponse toMorse(@RequestBody MorseCodeRequest request) throws BusinessException, AppException {
         String morseCode = this.morseCodeService.decodeTextToMorse(request.getText());
         return new MorseCodeResponse(200, morseCode);
@@ -36,7 +44,12 @@ public class MorseCodeController {
      * @throws BusinessException
      * @throws AppException
      */
-    @PostMapping("/2text")
+    @ApiOperation(value = "Traduz morse para texto")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retorna texto"),
+            @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
+    })
+    @PostMapping(value="/2text", produces="application/json", consumes="application/json")
     public MorseCodeResponse toText(@RequestBody MorseCodeRequest request) throws BusinessException, AppException {
         String text = this.morseCodeService.decodeMorseToText(request.getText());
         return new MorseCodeResponse(200, text);
@@ -49,22 +62,15 @@ public class MorseCodeController {
      * @throws BusinessException
      * @throws AppException
      */
-    @PostMapping("/bits2morse")
+    @ApiOperation(value = "Traduz sequencia de bits em morse")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Retorna morse"),
+            @ApiResponse(code = 500, message = "Foi gerada uma exceção"),
+    })
+    @PostMapping(value="/bits2morse", produces="application/json", consumes="application/json")
     public MorseCodeResponse bitsToMorse(@RequestBody MorseCodeRequest request) throws BusinessException, AppException {
         String text = this.morseCodeService.decodeBitsToMorse(request.getText());
         return new MorseCodeResponse(200, text);
     }
 
-    /**
-     * Traduz texto em bits
-     * @param request
-     * @return
-     * @throws BusinessException
-     * @throws AppException
-     */
-    @PostMapping("/text2bits")
-    public MorseCodeResponse text2bits(@RequestBody MorseCodeRequest request) throws BusinessException, AppException {
-        String text = this.morseCodeService.decodeTextToBits(request.getText());
-        return new MorseCodeResponse(200, text);
-    }
 }
