@@ -10,9 +10,7 @@ public class MorseCodeService {
     @Autowired
     private MorseCodeTranslater translater;
 
-    public String decodeBitsToMorse(String bits) {
-        return this.translater.decodeBitsToMorse(bits);
-    }
+    public String decodeBitsToMorse(String bits) { return this.translater.decodeBitsToMorse(bits); }
 
     public String decodeMorseToText(String morse) {
         return this.translater.decodeMorseToText(morse);

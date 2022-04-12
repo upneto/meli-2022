@@ -92,13 +92,17 @@ public class MorseCodeTranslater {
         return bitsSequence.replaceAll("^[0]+", "").replaceAll("[0]+$", "");
     }
 
+    /**
+     * Separa sequencia em duas listas: zeros e ones
+     * @param bitsSequence
+     */
     private void splitBitSequence(String bitsSequence){
         ones = bitsSequence.split("0+");
         zeros = bitsSequence.split("1+");
     }
 
     /**
-     *  Obtem faixas de tempo para conversão dos bits (sinais)
+     * Obtem faixas de tempo para conversão dos bits (sinais)
      * @param bitsSequence
      */
     private void setStripsOfTime(String bitsSequence) {
@@ -106,11 +110,7 @@ public class MorseCodeTranslater {
         km.makeGrouping();
 
         stripMim = (km.getTimeUnit(0) + km.getTimeUnit(1)) / 2;
-        stripMax = (km.getTimeUnit(1) + km.getTimeUnit(2)) / 2;
-        if (bitsSequence.length() > 5) {
-            stripMim *= 1.2;
-            stripMax *= 1.1;
-        }
+        stripMax = ((km.getTimeUnit(1) + km.getTimeUnit(2)) / 2) * 1.2f; //Ajuste de tempo de digitação padrão
     }
 
     /**
@@ -138,10 +138,14 @@ public class MorseCodeTranslater {
      * @return String Morse Code
      */
     private String getMorseCode(String one, String zero) {
+        // Se sequencia ONES menor ou igual ao intervalo minimo é ponto caso contrário traço
         String code = one.length() <= stripMim ? MorseCode.Signal.DIT : MorseCode.Signal.DAH;
+
+        // Se sequencia ZEROS dentro do intervalo de tempo concatena espaço de separação de caracter
         if ((zero.length() >= stripMim) && (zero.length() < stripMax)) {
             code += MorseCode.Signal.CHAR_SEPARATOR;
         }
+        // Se sequencia ZEROS maior que intervalo maximo concatena separador de palavras
         else if (zero.length() >= stripMax) {
             code += MorseCode.Signal.WORD_SEPARATOR;
         }

@@ -5,6 +5,7 @@ import java.util.*;
 public class KMeans {
 
     private static final int NUM_CLUSTERS = 3;
+    private static final int[] UNIT_TIMES = { 1, 3, 7 };
 
     private boolean converged = false;
     private KMeansCluster[] clusters;
@@ -21,7 +22,6 @@ public class KMeans {
         this.setNumClusters();
         String[] bitCollection = this.buildBitCollection(zeros, ones);
         this.buildGroupForDistanceCalc(bitCollection);
-        this.initializeClusters();
     }
 
     /**
@@ -84,34 +84,30 @@ public class KMeans {
             }
         });
 
-        List<Integer> keys = new ArrayList<>(dist.keySet());
-
-        if (keys.size() == 1 || keys.size() == 2) {
-            timeUnits[0] = keys.get(0);
-            timeUnits[1] = keys.get(0) * 3;
-            timeUnits[2] = keys.get(0) * 7;
-            converged = true;
-        } else {
-            Collections.sort(keys);
-            this.initializeClusters();
-        }
+        this.initializeClustersAndTimeUnits();
     }
 
     /**
      * Inicializa 3 clusters com localização no Inicio, meio e final da sequencia.
      */
-    private void initializeClusters() {
+    private void initializeClustersAndTimeUnits() {
         List<Integer> keys = new ArrayList<>(dist.keySet());
-        if (keys.size() != 1 && keys.size() != 2) {
+
+        if (keys.size() == 1 || keys.size() == 2) {
+            timeUnits[0] = keys.get(0) * UNIT_TIMES[0];
+            timeUnits[1] = keys.get(0) * UNIT_TIMES[1];
+            timeUnits[2] = keys.get(0) * UNIT_TIMES[2];
+            converged = true;
+        } else {
+            Collections.sort(keys);
             clusters[0] = new KMeansCluster(keys.get(0));
-            clusters[2] = new KMeansCluster(keys.get(keys.size() - 1));
             clusters[1] = new KMeansCluster((keys.get(keys.size() - 1) + keys.get(0)) / 2 + 1);
+            clusters[2] = new KMeansCluster(keys.get(keys.size() - 1));
         }
     }
 
     /**
-     * Atribui rótulos de cluster para cada ponto de comprimento da entrada.
-     * Isso será necessario para que os clusters recalculem os seus centróides e mova-se de acordo.
+     * Agrupa valores no centroid
      */
     public void assignToClosestCluster() {
         this.clear();
