@@ -96,13 +96,14 @@ O 0 na sequencia é equivalente a pausa e pode ser responsável pela separação
 O sinal "." (mais rapido) deve existir entre as médias do Cluster_1 e Cluster_2.
 O sinal "-" deve existir entre as médias do Cluster_2 e Cluster_3.
 	
-*Numero minimo da sequencia no intervalo (média Cluster_1 e Cluster_2) =  3.41
-*Numero maximo da sequencia no intervalo (média Cluster_2 e Cluster_3  =  8.30
+- Numero minimo da sequencia no intervalo (média Cluster_1 e Cluster_2) =  3.41
+- Numero maximo da sequencia no intervalo (média Cluster_2 e Cluster_3  =  8.30
 	
-	valor sinal "." 	  = largura sequencia 1 <= 3.41
-	Valor sinal "-" 	  = largura sequencia 1  > 3.41	
-	Valor separador sinal     = largura sequencia 0  > 3.41 < 8.30 
-	Valor separador " "       = largura sequencia 0  > 8.30 
+
+    valor sinal "." 	  = largura sequencia 1 <= 3.41
+    Valor sinal "-" 	  = largura sequencia 1  > 3.41	
+    Valor separador sinal     = largura sequencia 0  > 3.41 < 8.30 
+    Valor separador " "       = largura sequencia 0  > 8.30 
 
 Resultado: ".... . -.--  .--- ..- -.. ."
 
