@@ -98,7 +98,8 @@ O sinal "-" deve existir entre as médias do Cluster_2 e Cluster_3.
 	
 - Numero minimo da sequencia no intervalo (média Cluster_1 e Cluster_2) =  3.41
 - Numero maximo da sequencia no intervalo (média Cluster_2 e Cluster_3  =  8.30
-	
+
+Em resumo podemos agora obter o morse a partir dos intervalos:	
 
     valor sinal "." 	  = largura sequencia 1 <= 3.41
     Valor sinal "-" 	  = largura sequencia 1  > 3.41	
